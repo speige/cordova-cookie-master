@@ -19,6 +19,7 @@ public class CookieMaster extends CordovaPlugin {
     public static final String ACTION_GET_COOKIE_VALUE = "getCookieValue";
     public static final String ACTION_SET_COOKIE_VALUE = "setCookieValue";
     public static final String ACTION_CLEAR_COOKIES = "clearCookies";
+    public static final String ACTION_FLUSH = "flush";
 
     @Override
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
@@ -72,6 +73,7 @@ public class CookieMaster extends CordovaPlugin {
                         String cookieString = cookie.toString().replace("\"", "");
                         CookieManager cookieManager = CookieManager.getInstance();
                         cookieManager.setCookie(url, cookieString);
+            		cookieManager.flush();
 
                         PluginResult res = new PluginResult(PluginResult.Status.OK, "Successfully added cookie");
                         callbackContext.sendPluginResult(res);
@@ -85,7 +87,15 @@ public class CookieMaster extends CordovaPlugin {
         }
 
         else if (ACTION_CLEAR_COOKIES.equals(action)) {
-            CookieManager.getInstance().removeAllCookie();
+            CookieManager cookieManager = CookieManager.getInstance();
+            cookieManager.removeAllCookie();
+            cookieManager.flush();
+            callbackContext.success();
+            return true;
+        }
+
+        else if (ACTION_FLUSH.equals(action)) {
+            CookieManager.getInstance().flush();
             callbackContext.success();
             return true;
         }
