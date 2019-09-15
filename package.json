@@ -3,10 +3,10 @@
     "name": "Kevin Kelchen"
   },
   "bugs": {
-    "url": "https://github.com/Cartegraph/cordova-cookie-master/issues"
+    "url": "https://github.com/speige/cordova-cookie-master/issues"
   },
   "cordova": {
-    "id": "cordova-plugin-cartegraph-cookie-master",
+    "id": "cordova-plugin-cookie-master",
     "platforms": [
       "ios",
       "android"
@@ -19,7 +19,7 @@
       "version": ">=3.0.0"
     }
   ],
-  "homepage": "https://github.com/Cartegraph/cordova-cookie-master#readme",
+  "homepage": "https://github.com/speige/cordova-cookie-master",
   "keywords": [
     "cordova",
     "phonegap",
@@ -32,10 +32,10 @@
     "cordova-android"
   ],
   "license": "MIT",
-  "name": "cordova-plugin-cartegraph-cookie-master",
+  "name": "cordova-plugin-cookie-polyfill",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Cartegraph/cordova-cookie-master.git"
+    "url": "git+https://github.com/speige/cordova-cookie-master.git"
   },
   "version": "1.3.0"
 }
